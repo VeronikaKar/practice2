@@ -138,8 +138,8 @@
 // };
 
 // fetchUserFromServer(
-// 	"Mango", 
-// 	user => console.log(user), 
+// 	"Mango",
+// 	user => console.log(user),
 // 	error => console.error(error)
 // );
 // const userPromise = fetchUserFromServer("Mango"); // результатом виклику fetchUserFromServer("Mango") буде проміс
@@ -239,7 +239,7 @@
 // 	.catch(error => console.log(error));
 
 // makePromise({ value: "C", delay: 2000, shouldResolve: false })
-// 	.then(value => console.log(value)) 
+// 	.then(value => console.log(value))
 // 	.catch(error => console.log(error)); // "C"
 
 
@@ -267,3 +267,124 @@
 // })
 //   .then(value => console.log(value))
 //   .catch(error => console.log(error)); // "Rejected C"
+
+
+
+
+function greet() {
+    return 'Hello world';
+}
+
+function greet1() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("hello world");
+        }, 2000);
+    });
+}
+console.log(greet());
+greet1()
+    .then((response) => {
+        console.log(response);
+console.log('then');})
+    .catch((error) => {
+    console.log(error);
+    console.log("catch");
+    });
+// const getData = () =>
+//   new Promise((res) => {
+//     setTimeout(() => {
+//       const data = 1;
+//       //   console.log(data);
+//       res(data);
+//     }, 1000);
+//   });
+
+// const getNewData = () =>
+//   new Promise((res) => {
+//     setTimeout(() => {
+//       const data = 2;
+//       //   console.log(data);
+//       res(data);
+//     }, 1000);
+//   });
+
+// const getAnotherData = () =>
+//   new Promise((res) => {
+//     setTimeout(() => {
+//       const data = 3;
+//       //   console.log(data);
+//       res(data);
+//     }, 1000);
+//   });
+
+// const getLastData = () =>
+//   new Promise((res) => {
+//     setTimeout(() => {
+//       const data = 4;
+//       //   console.log(data);
+//       res(data);
+//     }, 1000);
+//   });
+// const newArray = [];
+// getData()
+//   .then(response => {
+//     newArray.push(response)
+//     return getNewData()
+//   })
+  
+//   .then(response => {
+//     newArray.push(response)
+//     return getAnotherData()
+//   })
+ 
+//   .then(response => {
+//     newArray.push(response)
+//     return getLastData()
+//   })
+//   .then(response => {
+//     newArray.push(response)
+//     // console.log(newArray);
+//   })
+
+
+// Promise.all([getData(), getNewData(), getAnotherData(), getLastData()]).then(response => console.log(response))
+  
+
+function countWithDelay(delay, times, interval) {
+    let count = 0;
+    function logCount() {
+        count += 1;
+        if (count === times) {
+            return;
+        }
+        setTimeout{ logCount, interval };
+        console.log(count);
+    }
+    createPromise(delay, logCount);
+}
+function createPromise(delay, callback) {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(), delay)
+    }). then(() => callback())
+    }
+// countWithDelay(1000, 5, 2000)
+
+const value = prompt("Enter number: ");
+function checkValue(value) {
+    return new Promise((resolve, reject) => {
+        if (!value || isNaN(value)) {
+            return reject('error')
+        }
+    if (value % 2 === 0) setTimeout(() => resolve("even"), 1000);
+    setTimeout(() => resolve("odd"), 2000);
+});
+}
+
+checkValue(value).then(response => {
+    console.log(response);
+    console.log('then');
+}).catch((error) => {
+    console.log(error);
+    console.log("catch");
+});
