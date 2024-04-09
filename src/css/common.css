@@ -1,0 +1,59 @@
+:root {
+  --primary: #d81e5b;
+  --secondary: #8a4fff;
+  --grey: #aaa;
+  --light: #eee;
+  --dark: #131a26;
+  --toggle-light: hsl(230, 22%, 74%);
+  --toggle-dark: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'Fira sans', sans-serif;
+}
+
+body {
+  background: var(--main-background);
+  color: var(--main-font);
+}
+
+h1,
+h2 {
+  color: var(--dark);
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+section {
+  padding: 50px 0;
+  text-align: center;
+}
+
+p {
+  color: var(--grey);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+/* components */
+
+.task-title {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0px 40px;
+}
+
+.module-title {
+  text-align: center;
+}
